@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <link rel="stylesheet" href="assets/styles/normalize.css" />
+    <title>Client</title>
+  </head>
+  <body>
+    <main>
+      <picture>
+        <img
+          src="assets/images/icon.svg"
+          alt="Icon of the web app"
+          id="main-icon"
+        />
+      </picture>
+      <h1>Image Optimizer</h1>
+      <form
+        id="form"
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <fieldset id="files">
+          <legend>Select files</legend>
+          <div id="file-loader">
+            <label for="fileLoad">Load files</label>
+            <input
+              type="file"
+              multiple="multiple"
+              name="fileLoad"
+              id="fileLoad"
+              accept="image/jpeg, image/png, image/webp, image/avif, image/tiff, image/gif"
+              required="required"
+            />
+            <picture id="file-loader-img">
+              <img src="assets/images/image-loader.svg" alt="" />
+            </picture>
+            <p id="file-selected">0 files selected</p>
+            <p id="file-advice">
+              The files must be JPEG, PNG, WebP, AVIF, TIFF or GIF
+            </p>
+          </div>
+        </fieldset>
+        <fieldset id="options">
+          <legend>Options</legend>
+          <div id="options-sliders">
+            <p>Resolution</p>
+            <div id="resolution">
+              <div class="options-row">
+                <p>Width</p>
+                <input
+                  type="range"
+                  min="1"
+                  max="10000"
+                  value="1000"
+                  class="slider"
+                  name="widthSlider"
+                  id="widthSlider"
+                />
+                <input
+                  type="number"
+                  min="1"
+                  max="10000"
+                  value="1000"
+                  id="widthNumber"
+                />
+              </div>
+              <div class="options-row">
+                <p>Height</p>
+                <input
+                  type="range"
+                  min="1"
+                  max="10000"
+                  value="1000"
+                  class="slider"
+                  name="heightSlider"
+                  id="heightSlider"
+                />
+                <input
+                  type="number"
+                  min="1"
+                  max="10000"
+                  value="1000"
+                  id="heightNumber"
+                />
+              </div>
+            </div>
+            <div id="compression">
+              <div class="options-row">
+                <p>Compression</p>
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="80"
+                  class="slider"
+                  name="compressionSlider"
+                  id="compressionSlider"
+                />
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  value="80"
+                  id="compressionNumber"
+                />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="output">
+          <legend>Output</legend>
+          <p>File output format</p>
+          <div id="output-type">
+            <div>
+              <input type="radio" name="output" id="jpeg" value="jpeg" />
+              <label for="jpeg">JPEG</label>
+            </div>
+            <div>
+              <input type="radio" name="output" id="png" value="png" />
+              <label for="png">PNG</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="output"
+                id="webp"
+                value="webp"
+                checked="checked"
+              />
+              <label for="webp">WebP</label>
+            </div>
+            <div>
+              <input type="radio" name="output" id="avif" value="avif" />
+              <label for="avif">AVIF</label>
+            </div>
+            <div>
+              <input type="radio" name="output" id="tiff" value="tiff" />
+              <label for="tiff">TIFF</label>
+            </div>
+          </div>
+          <input type="submit" id="download" value="Download" />
+        </fieldset>
+      </form>
+    </main>
+    <script src="assets/js/form.js"></script>
+  </body>
+</html>
