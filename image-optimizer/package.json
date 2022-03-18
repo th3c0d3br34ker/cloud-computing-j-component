@@ -7,7 +7,7 @@
     "start": "node build/server.js",
     "build": "npm run build:clean && npm run build:ts && npm run build:copy",
     "build:clean": "rm -rf build",
-    "build:copy": "cp -r src/public/ build/public/",
+    "build:copy": "cp -r src/public/ build/",
     "build:ts": "tsc",
     "dev": "nodemon src/server.ts"
   },
