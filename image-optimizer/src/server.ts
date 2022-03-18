@@ -19,7 +19,7 @@ app.use(express.static(__dirname + "/" + STATIC_FOLDER));
 
 // handle GET requests
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/app.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 // handle POST requests
