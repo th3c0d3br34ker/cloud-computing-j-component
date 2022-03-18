@@ -1,7 +1,7 @@
 import sharp from "sharp";
 import fs from "fs";
 
-import { compressFolder } from "config";
+import { compressFolder } from "../config";
 
 // check what's the output file format and depending on it it execute a different function to convert the images
 export async function convert(
