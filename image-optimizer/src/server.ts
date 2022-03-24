@@ -5,7 +5,7 @@ import bufferToString from "btoa";
 import fs from "fs";
 import archiver from "archiver";
 
-import { APP_PORT, STATIC_FOLDER } from "./config";
+import { APP_PORT, ID, STATIC_FOLDER } from "./config";
 
 const app = express();
 // name of the folder where the images will be created
@@ -17,9 +17,19 @@ app.use(fileUpload());
 // serve the files from the static folder as static files
 app.use(express.static(__dirname + "/" + STATIC_FOLDER));
 
+// custom header
+app.use((req, res, next) => {
+  res.append("X-APP-ID", ID);
+  next();
+});
+
 // handle GET requests
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/app-id", (req, res) => {
+  res.json({ status: "ok", appId: ID });
 });
 
 // handle POST requests
